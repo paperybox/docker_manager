@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 ROOT_DIR=$( readlink -f $(dirname $0)/../ )
 echo "workspace: $ROOT_DIR"
-IMG=nvcr.io/nvidia/tensorrt:23.12-py3
+#IMG=nvcr.io/nvidia/tensorrt:23.12-py3
+IMG=nvcr.io/nvidia/pytorch:24.12-py3-igpu
 DEFAULT_NAME="docker_${USER}"
 name=""
 update_flag=false
@@ -35,7 +36,7 @@ do
         update_flag=true
         ;;
     g)
-        USE_GPU="--gpus all"
+        USE_GPU="--runtime=nvidia"
         echo "Use GPU"
         ;;
     p)

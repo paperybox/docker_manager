@@ -12,7 +12,8 @@ source $Pwd/docker.env
 
 # install base tools
 
-checkCmdError apt install -y sudo openssh-server openssh-client ssh vim make cmake gcc g++ curl git python3 wget unzip
+checkCmdWarn apt update
+checkCmdWarn apt install -y sudo openssh-server openssh-client ssh vim make cmake gcc g++ curl git python3 wget unzip
 
 
 usermod -aG sudo "$DOCKER_USER"
